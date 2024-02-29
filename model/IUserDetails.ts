@@ -1,0 +1,30 @@
+export interface IUserDetails {
+  userName: String;
+  password: String;
+  isActive: boolean;
+  id: string;
+  branch: String;
+  firstName: String;
+  lastName: String;
+  userImg: String;
+  email: String;
+  phoneNumber: String;
+  dob: String;
+  bloodGroup: String;
+  district: String;
+  address: String;
+  gender: String;
+  state: String;
+  userGroup: String;
+  batch: String;
+  changePassword: boolean;
+  _id: String;
+  organisationId: String
+  organizationName?: string
+  name?: string
+  mobileNumber?: string
+  city?: string
+  educationInfo?: any[]
+  experienceInfo?: any[]
+  profileColor: string
+}

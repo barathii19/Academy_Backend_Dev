@@ -1,0 +1,392 @@
+{
+    "super_admin": [
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "superadmin-home",
+            "path": "/home",
+            "label": "Home",
+            "isChildRoute": false,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "superadmin-team",
+            "path": "/team",
+            "label": "Team",
+            "isChildRoute": false,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "superadmin-branch",
+            "path": "/branch",
+            "label": "Branch",
+            "isChildRoute": false,
+            "childPaths": [
+                "/branch/detail"
+            ]
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "superadmin-course",
+            "path": "/course",
+            "label": "Course",
+            "isChildRoute": false,
+            "childPaths": [
+                "/course/add"
+            ]
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "superadmin-finance",
+            "path": "/finance",
+            "label": "Finance",
+            "isChildRoute": false,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "superadmin-setting",
+            "path": "/setting",
+            "label": "Setting",
+            "isChildRoute": true,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "superadmin-branchDetails",
+            "path": "/branch/detail",
+            "label": "Branch",
+            "isChildRoute": true,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "superadmin-addcourse",
+            "path": "/course/add",
+            "label": "AddCourse",
+            "isChildRoute": true,
+            "childPaths": []
+        }
+    ],
+    "admin": [
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "admin-home",
+            "path": "/home",
+            "label": "Home",
+            "isChildRoute": false,
+            "childPaths": []
+        },
+        {
+            "createPermission": false,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "admin-course",
+            "path": "/course",
+            "label": "Course",
+            "isChildRoute": false,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "admin-staff",
+            "path": "/staff",
+            "label": "Staff",
+            "isChildRoute": false,
+            "childPaths": [
+                "/staff/detail"
+            ]
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "admin-student",
+            "path": "/student",
+            "label": "Student",
+            "isChildRoute": false,
+            "childPaths": [
+                "/student/detail"
+            ]
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "admin-batch",
+            "path": "/batch",
+            "label": "Batch",
+            "isChildRoute": false,
+            "childPaths": [
+                "/batch/detail"
+            ]
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "admin-finance",
+            "path": "/finance",
+            "label": "Finance",
+            "isChildRoute": false,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "admin-setting",
+            "path": "/setting",
+            "label": "Setting",
+            "isChildRoute": true,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "admin-staffDetails",
+            "path": "/staff/detail",
+            "label": "Staff",
+            "isChildRoute": true,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "admin-studentDetails",
+            "path": "/student/detail",
+            "label": "Student",
+            "isChildRoute": true,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "admin-batchDetails",
+            "path": "/batch/detail",
+            "label": "Batch",
+            "isChildRoute": true,
+            "childPaths": []
+        }
+    ],
+    "staff": [
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "staff-home",
+            "path": "/home",
+            "label": "Home",
+            "isChildRoute": false,
+            "childPaths": []
+        },
+        {
+            "createPermission": false,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "staff-course",
+            "path": "/course",
+            "label": "Course",
+            "isChildRoute": false,
+            "childPaths": []
+        },
+        {
+            "createPermission": false,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "staff-batch",
+            "path": "/batch",
+            "label": "Batch",
+            "isChildRoute": false,
+            "childPaths": [
+                "/batch/detail",
+                "/batch/student/detail"
+            ]
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "staff-batchDetail",
+            "path": "/batch/detail",
+            "label": "Batch",
+            "isChildRoute": true,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "staff-batchStudentDetail",
+            "path": "/batch/student/detail",
+            "label": "Batch",
+            "isChildRoute": true,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "staff-setting",
+            "path": "/setting",
+            "label": "Setting",
+            "isChildRoute": false,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "staff-event",
+            "path": "/event",
+            "label": "Event",
+            "isChildRoute": false,
+            "childPaths": []
+        }
+    ],
+    "student": [
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "student-home",
+            "path": "/home",
+            "label": "Home",
+            "isChildRoute": false,
+            "childPaths": []
+        },
+        {
+            "createPermission": false,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "student-course",
+            "path": "/course",
+            "label": "Course",
+            "isChildRoute": false,
+            "childPaths": []
+        },
+        {
+            "createPermission": false,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "student-batch",
+            "path": "/batch",
+            "label": "Batch",
+            "isChildRoute": false,
+            "childPaths": [
+                "/batch/detail"
+            ]
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "student-setting",
+            "path": "/setting",
+            "label": "Setting",
+            "isChildRoute": false,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "student-batch",
+            "path": "/batch/detail",
+            "label": "Batch",
+            "isChildRoute": true,
+            "childPaths": []
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "student-event",
+            "path": "/event",
+            "label": "Event",
+            "isChildRoute": false,
+            "childPaths": []
+        }
+    ],
+    "recruiter": [
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "recruiter-student",
+            "path": "/recruit-student",
+            "label": "Student",
+            "isChildRoute": false,
+            "childPaths": [
+                "/recruit-student/detail"
+            ]
+        },
+        {
+            "createPermission": true,
+            "readPermission": true,
+            "updatePermission": true,
+            "deletePermission": true,
+            "screen": "recruiter-studentDetail",
+            "path": "/recruit-student/detail",
+            "label": "Student",
+            "isChildRoute": true,
+            "childPaths": []
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+meta_data:
+==========
+
+[{  "type": "gender",  "data": [    "Male",    "Female",    "Others"  ]},
+{  "type": "bloodgroup",  "data": [    "B+",    "B-",    "A+",    "A-",    "O-",    "O+",    "AB+",    "AB-"  ]},
+{  "type": "usergroup",  "data": [    "admin",    "super_admin"  ]},
+{ "type": "usergroupWithAccess",  "data": {    "Admin": [      "Admin",      "Teacher",      "Student"    ],    "Super_Admin": [      "Admin",      "Teacher",      "Student",      "Super_Admin"    ]  }}]
+
+user_details
+============
+
+{  "email": "test@crud-operations.com",  "firstName": "Test",  "lastName": "V",  "dob": "1994-12-01",  "userImg": "https://images.pexels.com/photos/3304855/pexels-photo-3304855.jpeg?cs=srgb&dl=pexels-jo%C3%A3o-cabral-3304855.jpg&fm=jpg",  "bloodGroup": "B+",  "district": "Chennai",  "state": "TN",  "address": "Chennai",  "city": "chenaai",  "id": "CRUD001",  "password": "CRUD001",  "changePassword": true,  "gender": "Male",  "isActive": true,  "userGroup": "super_admin",  "createdDate": {    "$date": {      "$numberLong": "1650093225337"    }  },  "phoneNumber": "1234567890"}

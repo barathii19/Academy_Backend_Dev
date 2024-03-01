@@ -20,6 +20,7 @@ interface IStudents {
 export interface IQuiz {
   topic: String;
   moduleId: String;
+  moduleName: String;
   batchId: String;
   date: String;
   creator: String;

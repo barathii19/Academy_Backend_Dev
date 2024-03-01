@@ -18,6 +18,7 @@ export class QuizService {
         quiz.batchId = quizData.batchId;
         quiz.createrId = new ObjectId(createrId);
         quiz.moduleId = quizData.moduleId;
+        quiz.moduleName = quizData.moduleName;
         quiz.questions = quizData.questions;
         quiz.topic = quizData.topic;
         quiz.type = quizData.type;
@@ -63,6 +64,7 @@ export class QuizService {
             $project: {
               topic: 1,
               moduleId: 1,
+              moduleName: 1,
               batchId: 1,
               questions: {
                 $map: {
@@ -85,8 +87,13 @@ export class QuizService {
         ])
         .toArray()
         .then((res) => {
-          console.log(res, "res");
-          return res;
+          return new Promise((resolve, reject) => {
+            resolve({ success: false, data: res })
+          })
+        }).catch((e) => {
+          return new Promise((resolve, reject) => {
+            reject(e)
+          })
         })
         .finally(() => {
           obj.client.close();

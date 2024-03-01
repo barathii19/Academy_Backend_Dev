@@ -13,7 +13,7 @@ export class QuizContoller {
           response.status(200).json({ success: true, message: "Quiz created" });
         })
         .catch((e) => {
-          response.status(500).json({
+          response.status(400).json({
             message: LogController.errorMes("QuizContoller-addQuizToBatch", e),
           });
         });
@@ -31,7 +31,7 @@ export class QuizContoller {
           response.status(200).json({ success: true, data: data });
         })
         .catch((err) => {
-          response.status(500).json({
+          response.status(400).json({
             message: LogController.errorMes("QuizContoller-getQuiz", err),
           });
         });
@@ -49,7 +49,7 @@ export class QuizContoller {
           response.status(200).json(data);
         })
         .catch((err) => {
-          response.status(500).json(err);
+          response.status(400).json(err);
         });
     } catch (error) {
       response.status(500).json(error);

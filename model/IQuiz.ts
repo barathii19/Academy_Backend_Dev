@@ -5,7 +5,7 @@ interface IQuizInfo {
 }
 
 interface IQuestions {
-  questionId: String;
+  questionId: any;
   questions: String;
   options: [String];
   answer: String;

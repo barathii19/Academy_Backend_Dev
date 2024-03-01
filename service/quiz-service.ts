@@ -7,6 +7,10 @@ export class QuizService {
     return MongoService.collectionDetails("batch").then((obj) => {
       let studentList: Array<any> = [];
       const batchId: any = quizData.batchId;
+      quizData.questions.map((question) => {
+        question.questionId = new ObjectId();
+        return question
+      })
       obj.connection.findOne({ _id: new ObjectId(batchId) }).then((batch) => {
         studentList = batch?.studentList;
       });
@@ -103,7 +107,8 @@ export class QuizService {
   static submitQuiz(payload: ISumbmit_Quiz) {
     const id = payload.student_id;
     const answers = payload.student_submit_answer;
-    if (id) {
+    const isAnswersValid = answers.every((answer) => answer.id)
+    if (id && isAnswersValid) {
       return MongoService.collectionDetails("quiz").then((obj) => {
         return obj.connection
           .findOne({ "students.studentId": new ObjectId(id) })
@@ -151,7 +156,7 @@ export class QuizService {
       });
     } else {
       return new Promise((resolve, reject) => {
-        reject({ success: false, message: "Student Id not exist" });
+        reject({ success: false, message: "Invalid payload" });
       });
     }
   }

@@ -9,8 +9,8 @@ export class QuizService {
       const batchId: any = quizData.batchId;
       quizData.questions.map((question) => {
         question.questionId = new ObjectId();
-        return question
-      })
+        return question;
+      });
       obj.connection.findOne({ _id: new ObjectId(batchId) }).then((batch) => {
         studentList = batch?.studentList;
       });
@@ -92,12 +92,13 @@ export class QuizService {
         .toArray()
         .then((res) => {
           return new Promise((resolve, reject) => {
-            resolve({ success: false, data: res })
-          })
-        }).catch((e) => {
+            resolve({ success: false, data: res });
+          });
+        })
+        .catch((e) => {
           return new Promise((resolve, reject) => {
-            reject(e)
-          })
+            reject(e);
+          });
         })
         .finally(() => {
           obj.client.close();
@@ -105,13 +106,19 @@ export class QuizService {
     });
   }
   static submitQuiz(payload: ISumbmit_Quiz) {
-    const id = payload.student_id;
+    const studentId = payload.student_id;
+    const id = payload.quiz_id;
     const answers = payload.student_submit_answer;
-    const isAnswersValid = answers.every((answer) => answer.id)
-    if (id && isAnswersValid) {
+    const isAnswersValid = answers.every((answer) => answer.id);
+    if (id && isAnswersValid && studentId) {
       return MongoService.collectionDetails("quiz").then((obj) => {
         return obj.connection
-          .findOne({ "students.studentId": new ObjectId(id) })
+          .findOne({
+            $and: [
+              { "students.studentId": new ObjectId(studentId) },
+              { _id: new ObjectId(id) },
+            ],
+          })
           .then((quiz) => {
             const questions = quiz?.questions;
             const correctCount = answers.reduce((count, userAnswer) => {
@@ -125,7 +132,10 @@ export class QuizService {
             const percentage = (correctCount / answers.length) * 100;
             return obj.connection.findOneAndUpdate(
               {
-                "students.studentId": new ObjectId(id),
+                $and: [
+                  { "students.studentId": new ObjectId(studentId) },
+                  { _id: new ObjectId(id) },
+                ],
               },
               {
                 $set: {

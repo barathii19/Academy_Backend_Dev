@@ -41,11 +41,10 @@ export class AssessmentController {
           typeof bodyContent.totalMark === "number" &&
           bodyContent.batch &&
           bodyContent.date &&
-          bodyContent.timings &&
-          bodyContent.timings.from &&
-          bodyContent.timings.to &&
-          bodyContent.timings.totalHours &&
-          typeof bodyContent.timings.totalHours === "number"
+          bodyContent.startTime &&
+          bodyContent.endTime &&
+          bodyContent.module &&
+          bodyContent.description
         ) {
           AssessmentService.postAssessmentService(bodyContent, jwtPayload.id)
             .then((data) => {

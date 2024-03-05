@@ -40,7 +40,6 @@ export class AssessmentController {
           bodyContent.totalMark &&
           typeof bodyContent.totalMark === "number" &&
           bodyContent.batch &&
-          bodyContent.date &&
           bodyContent.startTime &&
           bodyContent.endTime &&
           bodyContent.module &&

@@ -13,6 +13,8 @@ export class AssessmentService {
     static postAssessmentService(bodyData: any, createrId: any) {
         return MongoService.collectionDetails("batch").then(batchObj => {
             return batchObj.connection.findOne({ _id: new ObjectId(bodyData.batch), "inCharge.id": createrId }).then((batchData) => {
+                console.log(batchData, "batchData");
+                
                 if (batchData) {
                     const studentList = batchData.studentList.map((id: any) => {
                         return {
@@ -42,6 +44,7 @@ export class AssessmentService {
         })
     }
     static getAssessmentInfoService(id: any) {
+        console.log(id, "id");
         return MongoService.collectionDetails("assessment").then(obj => {
             return obj.connection.aggregate([
                 { $match: { _id: new ObjectId(id) } },

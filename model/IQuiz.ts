@@ -37,5 +37,6 @@ interface IStudent_Answer {
 
 export interface ISumbmit_Quiz {
   student_id: any;
+  quiz_id: any;
   student_submit_answer: IStudent_Answer[];
 }

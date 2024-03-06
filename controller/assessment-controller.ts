@@ -32,20 +32,20 @@ export class AssessmentController {
   static postAssessment(request: Request, response: Response) {
     const jwtPayload = decodeJwt(request);
     const bodyContent: IAssessmentPayload = request.body;
+    const file = request.file;
     try {
       if (jwtPayload && jwtPayload.id) {
         if (
           bodyContent &&
           bodyContent.title &&
           bodyContent.totalMark &&
-          typeof bodyContent.totalMark === "number" &&
           bodyContent.batch &&
           bodyContent.startTime &&
           bodyContent.endTime &&
           bodyContent.module &&
           bodyContent.description
         ) {
-          AssessmentService.postAssessmentService(bodyContent, jwtPayload.id)
+          AssessmentService.postAssessmentService(bodyContent, file, jwtPayload.id)
             .then((data) => {
               response.status(200).json(data);
             })

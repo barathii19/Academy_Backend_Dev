@@ -1,5 +1,5 @@
 export interface IAssessmentPayload {
-    totalMark: number
+    totalMark: String
     title: string
     batch: any
     startTime: String

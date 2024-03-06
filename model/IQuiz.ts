@@ -21,7 +21,7 @@ export interface IQuiz {
   topic: String;
   moduleId: String;
   moduleName: String;
-  batchId: String;
+  batchId: any;
   date: String;
   creator: String;
   questions: IQuestions[];

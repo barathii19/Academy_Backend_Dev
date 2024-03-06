@@ -11,12 +11,8 @@ export class AssessmentService {
         })
     }
     static postAssessmentService(bodyData: any, file: any, createrId: any) {
-        console.log(file, "file");
-        
         return MongoService.collectionDetails("batch").then(batchObj => {
             return batchObj.connection.findOne({ _id: new ObjectId(bodyData.batch), "inCharge.id": createrId }).then((batchData) => {
-                console.log(batchData, "batchData");
-                
                 if (batchData) {
                     const studentList = batchData.studentList.map((id: any) => {
                         return {

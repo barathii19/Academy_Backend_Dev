@@ -20,7 +20,7 @@ export class QuizService {
           return { studentId: id, solved: false, score: [] };
         });
         quiz.batchId = quizData.batchId;
-        quiz.createrId = new ObjectId(createrId);
+        quiz.createrId = createrId;
         quiz.moduleId = quizData.moduleId;
         quiz.moduleName = quizData.moduleName;
         quiz.questions = quizData.questions;
@@ -30,7 +30,6 @@ export class QuizService {
         obj.connection
           .insertOne(quiz)
           .then((res) => {
-            console.log(res, "res");
             return new Promise((reslove, reject) => {
               reslove({ success: true, message: "Quiz posted" });
             });

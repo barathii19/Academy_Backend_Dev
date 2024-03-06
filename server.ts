@@ -34,6 +34,7 @@ import { AssessmentController } from "./controller/assessment-controller";
 import { EventController } from "./controller/Event-controller";
 import { QuizContoller } from "./controller/quiz-controller";
 import { MATExamController } from "./controller/matExam-controller";
+import multer from "multer";
 
 const app = express();
 app.use(cors());
@@ -86,6 +87,17 @@ app.use(bodyParser.json({ limit: "50mb" }));
 // });
 
 // app.use("/api/v1", MiddleWare.loggerMiddleware, v1router);
+
+//multer
+  const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, './uploads'); 
+    },
+    filename: (req, file, cb) => {
+      cb(null, file.originalname);
+    },
+  });
+  const upload = multer({ storage })
 
 //login
 app.post(metaData.url.getCredentials, (req, res) => {
@@ -551,7 +563,7 @@ app.get(metaData.url.getChartData, (req, res) => {
   ExpenseController.getChartData(req, res);
 });
 
-app.post(metaData.url.assessment, (req, res) => {
+app.post(metaData.url.assessment, upload.single('attachment'), (req, res) => {
   AssessmentController.postAssessment(req, res);
 });
 

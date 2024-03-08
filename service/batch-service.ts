@@ -10,6 +10,7 @@ import { Request } from "express";
 import { metaData } from "../environment/meta-data";
 import { IPostStaffDetails } from "../model/IStaffDetails";
 import { decodeJwt } from "../HelperFunction/jwtHelper";
+import { MetadataController } from "../controller/metadata_controller";
 
 export class BatchService {
   static getBatchDetails(request: Request) {
@@ -108,6 +109,20 @@ export class BatchService {
             as: "quiz_details",
           },
         },
+        {
+          $lookup: {
+            from: metaData.db.collectionDetails.user,
+           let: { studentId: "$studentList" },
+            pipeline: [
+              {
+                $match: {
+                  $expr: { $in: ["$_id", "$$studentId"] }
+                }
+              }
+            ],
+            as: "studentList"
+          }
+        }
       ]).toArray()
     });
   }

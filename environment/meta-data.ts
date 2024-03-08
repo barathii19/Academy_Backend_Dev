@@ -24,6 +24,8 @@ export const metaData = {
     assessment: "/assessment",
     getAssessment: "/assessment/:id",
     getAssessmentInfo: "/assessment/info/:id",
+    getStudentAssessment: "/assessment/student/:id",
+    submitAssessment: "/assessment/submit",
     getChartData: "/finance/report",
     unpaidStudent: "/unpaid/student",
     postExpense: "/expense",

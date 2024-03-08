@@ -89,15 +89,9 @@ app.use(bodyParser.json({ limit: "50mb" }));
 // app.use("/api/v1", MiddleWare.loggerMiddleware, v1router);
 
 //multer
-  const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, './uploads'); 
-    },
-    filename: (req, file, cb) => {
-      cb(null, file.originalname);
-    },
-  });
-  const upload = multer({ storage })
+const storage = multer.memoryStorage();
+
+const upload = multer({ storage: storage });
 
 //login
 app.post(metaData.url.getCredentials, (req, res) => {
@@ -563,6 +557,7 @@ app.get(metaData.url.getChartData, (req, res) => {
   ExpenseController.getChartData(req, res);
 });
 
+// Assessment
 app.post(metaData.url.assessment, upload.single('attachment'), (req, res) => {
   AssessmentController.postAssessment(req, res);
 });
@@ -582,6 +577,15 @@ app.post(metaData.url.getAssessmentInfo, (req, res) => {
 app.delete(metaData.url.getAssessment, (req, res) => {
   AssessmentController.deleteAssessment(req, res);
 });
+
+app.get(metaData.url.getStudentAssessment, (req, res) => {
+  AssessmentController.getStudentAssessment(req, res)
+})
+
+app.put(metaData.url.submitAssessment, (req, res) => {
+  AssessmentController.submitAssessment(req, res)
+})
+
 
 app.post(metaData.url.updateBatchModule, (req, res) => {
   BatchController.updateBatchModules(req, res);

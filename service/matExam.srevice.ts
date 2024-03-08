@@ -293,4 +293,9 @@ export class MATExamService {
       });
     }
   }
+  static getMark() {
+    return MongoService.collectionDetails("matExam").then((obj) => {
+      return obj.connection.find({}).toArray();
+    });
+  }
 }

@@ -660,6 +660,9 @@ app.post(metaData.url.submitQuiz, (req, res) => {
 app.put(metaData.url.blockuser, (req, res) => {
   MATExamController.BlockUser(req, res);
 });
+app.get(metaData.url.getMark, (req, res) => {
+  MATExamController.GetExamMark(req, res);
+});
 
 const port = metaData.base.apiPort;
 app.listen(port, () => {

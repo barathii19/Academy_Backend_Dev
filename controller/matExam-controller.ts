@@ -107,4 +107,19 @@ export class MATExamController {
       response.status(500).json(metaData.message.serverError);
     }
   }
+  static GetExamMark(request: Request, response: Response) {
+    try {
+      MATExamService.getMark()
+        .then((data) => {
+          console.log(data, "data");
+          response.status(200).json({ success: true, data: data });
+        })
+        .catch((err) => {
+          response.status(400).json(err);
+        });
+    } catch (error) {
+      console.log(error, "err");
+      response.status(500).json({ success: false, error });
+    }
+  }
 }

@@ -185,6 +185,7 @@ export const metaData = {
     getMatQuiz: "/matQuiz",
     submitQuiz: "/submitQuiz",
     blockuser: "/block",
+    getMark: "/getMark"
   },
 
   db: {

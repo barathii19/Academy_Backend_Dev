@@ -140,4 +140,50 @@ export class AssessmentController {
       });
     }
   }
+  static getStudentAssessment( request: Request, response: Response ){
+    const { id } = request.params
+    try {
+      AssessmentService.studentAssessmentService(id)
+      .then((data) => {
+        response.status(200).json({ success: true, data });
+      })
+      .catch((e) => {
+        response.status(500).json({
+          message: LogController.errorMes(
+            "assessmentcontroller-deleteAssessment",
+            e
+          ),
+        });
+      });
+    } catch (error) {
+      response.status(500).json({
+        message: LogController.errorMes(
+          "assessmentcontroller-getStudentAssessment",
+          error
+        ),
+      });
+    }
+  }
+  static submitAssessment(request: Request, response: Response){
+    const payload = request.body;
+    const jwtPayload = decodeJwt(request);
+    try {
+      if(jwtPayload && jwtPayload.id){
+        AssessmentService.submitAssessmentService(jwtPayload.id, payload).then((data) => {
+          response.status(200).json({ success: true, data })
+        }).catch((e) => {
+          response.status(500).json(e)
+        })
+      } else {
+        response.status(401).json({ message: "Invalid user" })
+      }
+    } catch (error) {
+      response.status(500).json({
+        message: LogController.errorMes(
+          "assessmentcontroller-submitAssessment",
+          error
+        ),
+      });
+    }
+  }
 }
